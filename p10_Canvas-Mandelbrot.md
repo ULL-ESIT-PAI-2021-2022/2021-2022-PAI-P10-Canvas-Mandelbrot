@@ -1,3 +1,5 @@
+PRIVATE
+
 # Práctica 10. Programación Gráfica en JavaScript. La API Canvas. El conjunto de Mandelbrot.
 ### Factor de ponderación: 9
 
@@ -67,17 +69,18 @@ complejo.
 El 
 [conjunto de Mandelbrot](https://es.wikipedia.org/wiki/Conjunto_de_Mandelbrot)
 es un conjunto definido en el plano complejo.
-La pertenencia de un número complejo `c` al conjunto se determina en función de la siguiente expresión:
+La pertenencia de un número complejo `c` al conjunto se determina en función de la siguiente relación de
+recurrencia:
 
-`z = z^2 + c`   [1] 
+`z = z^2 + c`
 
 donde `z` y `c` son números complejos. 
 
-La función tiene la condición inicial `z = c`. 
+La función tiene la condición inicial `z = c` siendo `c` es un número complejo cualquiera.
 Lo que habitualmente se calcula es el número de iteraciones necesarias para que `z` alcance algún valor umbral
 que en el caso del conjunto de Mandelbrot es:
 
-`|z| > 2.0`     [2]
+`|z| > 2.0`
 
 Si, dentro de un número finito de iteraciones, se cumple la condición anterior, entonces se 
 considera que el punto `c` está fuera del conjunto de Mandelbrot.
@@ -91,22 +94,20 @@ En esta práctica se propone desarrollar una clase `Mandelbrot`
 que posibilite la visualización del conjunto y calcular su área.
 La clase ha de encapsularse en un módulo ES6 `mandelbrot.js`.
 
-Previo a la implementación de la clase, diseñe y desarrolle un conjunto de tests para probar el correcto
-funcionamiento de todos los métodos de la clase.
-
 La visualización de la ejecución del programa se realizará a través de una página web alojada
 en la máquina IaaS-ULL de la asignatura y cuya URL tendrá la forma:
 
 [3] `http://10.6.129.123:8080/einstein-albert-mandelbrot.html`
 
 en la que se incustará un canvas para dibujar el conjunto.
-Sustituya *Albert Einstein* por su nombre y apellido en la URL de su página.
+Sustituya *Albert Einstein* por su nombre y apellido en la URL de su página
+y la dirección IP anterior por la correspondiente a su máquina IaaS.
 
 El valor del área y el error de la misma se imprimirán asimismo **gráficamente** dentro del canvas.
 El resultado de dicha visualización debiera ser similar (a falta del área y error) al que muestra 
-[esta página](https://math.hws.edu/eck/js/mandelbrot/MB.html) [4].
+[esta página](https://math.hws.edu/eck/js/mandelbrot/MB.html).
 
-Trate de usar elementos HTML y CSS que le permitan imitar -en la medida de lo posible- la estética de la
+XXX Trate de usar elementos HTML y CSS que le permitan imitar -en la medida de lo posible- la estética de la
 página anterior.
 No se propone en esta práctica que dote de interactividad a los elementos (botones, campos de texto,
 selectores, etc.) que figuran en la página anterior.
@@ -178,6 +179,8 @@ Nótese que el número de puntos `N` que el programa utilice para calcular el á
 que de algún modo habrá que configurar.
 
 ## Referencias
+* [El Conjunto de Mandelbrot](https://es.wikipedia.org/wiki/Conjunto_de_Mandelbrot)
+* [El conjunto de Mandelbrot. Vídeo](https://www.youtube.com/watch?v=1uT67l5STEw) 
 * [ESLint](https://eslint.org/)
 * [JSDoc](https://jsdoc.app/)
 * [The Modern Javascript Tutorial](https://javascript.info)
