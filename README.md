@@ -1,3 +1,4 @@
 ## PAI Lab assignment 
 
-Object Oriented Programming
+The HML5 Canvas API
+Mandelbrot Set
