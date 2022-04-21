@@ -4,10 +4,10 @@ PRIVATE
 ### Factor de ponderación: 9
 
 ### Objetivos
-Los objetivos de esta práctica son:
-* Poner en práctica conceptos de Programación Gráfica en JavaScript usando la API Canvas.
-* Poner en práctica metodologías y conceptos de Programación Orientada a Objetos en JavaScript.
-* Poner en práctica Principios y Buenas prácticas de programación Orientada a Objetos.
+Los objetivos de esta tarea son poner en práctica:
+* Conceptos básicos de Programación Gráfica en JavaScript usando la API Canvas.
+* Metodologías y conceptos de Programación Orientada a Objetos en JavaScript.
+* Principios y Buenas prácticas de programación Orientada a Objetos.
 
 ### Rúbrica de evaluacion del ejercicio
 Se señalan a continuación los aspectos más relevantes (la lista no es exhaustiva)
@@ -97,7 +97,7 @@ La clase ha de encapsularse en un módulo ES6 `mandelbrot.js`.
 La visualización de la ejecución del programa se realizará a través de una página web alojada
 en la máquina IaaS-ULL de la asignatura y cuya URL tendrá la forma:
 
-[3] `http://10.6.129.123:8080/einstein-albert-mandelbrot.html`
+[1] `http://10.6.129.123:8080/einstein-albert-mandelbrot.html`
 
 en la que se incustará un canvas para dibujar el conjunto.
 Sustituya *Albert Einstein* por su nombre y apellido en la URL de su página
@@ -107,45 +107,47 @@ El valor del área y el error de la misma se imprimirán asimismo **gráficament
 El resultado de dicha visualización debiera ser similar (a falta del área y error) al que muestra 
 [esta página](https://math.hws.edu/eck/js/mandelbrot/MB.html).
 
-XXX Trate de usar elementos HTML y CSS que le permitan imitar -en la medida de lo posible- la estética de la
-página anterior.
-No se propone en esta práctica que dote de interactividad a los elementos (botones, campos de texto,
-selectores, etc.) que figuran en la página anterior.
-Sí debe Ud. tratar de imitar los enlaces que aparecen en la página, el tipo de letra o los colores de la
-misma.
+No es necesario que invierta esfuerzo en la programación de los aspectos de esa página que no tienen relación
+con JavaScript. 
+Tanto HTML como CSS son aspectos que se estudiarán con cierto nivel de detalle en el futuro. 
+No se requiere que dedique esfuerzo a esos aspectos en esta práctica.
+Tampoco se propone en esta práctica que dote de interactividad a los elementos (botones, campos de texto,
+selectores, etc.) que figuran en la página anterior, y que no son necesarios en su trabajo.
 
 Diseñe asimismo otra página HTML simple 
 
 [5] `http://10.6.129.123:8080/index.html`
 
 que sirva de "página índice" para los ejercicios de la sesión de evaluación de la práctica.
-La página [3] será uno de los enlaces de [5] y a su vez [3] tendrá un enlace "Home" que apunte a [5].
-Enlace también en la página índice [5] las páginas que contienen los informes de documentación y de
+La página [1] será uno de los enlaces de [2] y a su vez [1] tendrá un enlace "Home" que apunte a [2].
+Enlace también en la página índice [2] las páginas que contienen los informes de documentación y de
 cubrimiento de código de su proyecto.
 
 ## Visualización del conjunto
 
 Para visualizar el conjunto basta recorrer todos los píxeles (puntos) del canvas asignando un color a cada
-uno dependiendo del número de iteraciones que precisa el punto en cuestión para determinarse si pertenece
+uno dependiendo del número de iteraciones que precisa el punto en cuestión para determinar si pertenece
 o no al conjunto de Mandelbrot.
 Es muy fácil hallar ejemplos de código que realizan este cálculo de diferentes formas.
 Puede consultar 
 [esta referncia](https://www.codingame.com/playgrounds/2358/how-to-plot-the-mandelbrot-set/adding-some-colors) 
 (código en Python) a modo de ejemplo.
+Nota: no imite Ud. la elección de identificadores que se hace en ese código de ejemplo en Python.
 
 Pueden idearse estrategias para que la visualización del conjunto resulte fluída.
 Un factor importante para conseguir fluidez es la optimización del código, puesto que se trata de una aplicación intensiva en cómputo.
 
 ## Cálculo del área
-
 El cálculo del área del conjunto de Mandelbrot es un problema no trivial, ya que los resultados teóricos y 
 numéricos obtenidos para este cálculo no concuerdan. 
 Se propone usar el muestreo de Monte Carlo para calcular una solución numérica a este problema.
 El método de Monte Carlo que que se propone implica la generación de un gran número de puntos 
 aleatorios en el rango `[(-2.0, 0), (0.5, 1.125)]` del plano complejo. 
-Cada punto será iterado usando la ecuación [1] hasta un determinado límite (digamos hasta 10000). 
+Cada punto será iterado usando la ecuación de recurrencia
+`z = z^2 + c`
+hasta un determinado límite (digamos hasta 10000). 
 Ese número de iteraciones es el que se elige en el selector *MaxIterations* en la 
-[página](https://math.hws.edu/eck/js/mandelbrot/MB.html) [4].
+[página](https://math.hws.edu/eck/js/mandelbrot/MB.html).
 Si dentro de ese número de iteraciones se cumple la condición de umbral, entonces ese punto se considera 
 fuera (no perteneciente) del Conjunto de Mandelbrot. 
 Al contabilizar el número de puntos aleatorios dentro del conjunto y los que están fuera, se obtiene
@@ -158,7 +160,7 @@ Para cada punto:
 
  - Asignar `z = c[i]`
 
- - Iterar según la ecuación [1], probando la condición umbral [2] en cada iteración:
+ - Iterar según la ecuación de recurrencia, probando la condición umbral en cada iteración:
 
  - Si no se cumple la condición del umbral, es decir, `|z| <= 2`, entonces repetir la iteración 
   (hasta el número máximo de iteraciones predeterminado). 
@@ -173,7 +175,8 @@ el área estimada y el error vienen dado por las siguientes expresiones:
 
 > Error = Área / sqrt(N)
 
-Escriba el código para calcular el área y su error.
+Escriba el código para calcular el área y su error e imprima esos valores gráficamente (no en HTML) dentro del
+canvas en una esquina del área de dibujo.
 
 Nótese que el número de puntos `N` que el programa utilice para calcular el área es un parámetro
 que de algún modo habrá que configurar.
