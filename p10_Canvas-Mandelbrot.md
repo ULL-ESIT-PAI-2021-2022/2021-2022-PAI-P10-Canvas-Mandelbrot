@@ -1,5 +1,3 @@
-PRIVATE
-
 # Práctica 10. Programación Gráfica en JavaScript. La API Canvas. El conjunto de Mandelbrot.
 ### Factor de ponderación: 9
 
